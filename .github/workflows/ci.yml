@@ -1,0 +1,19 @@
+name: Build - CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm
+      - name: Build Packages
+        run: npm run build  
